@@ -1,7 +1,7 @@
 const User=require('../model/user');
 const validate=require('../uttils/validator');
 const bcrypt=require('bcrypt');
-const jwt=require('jsonwebtoken');
+const jwt=require('jsonwebtoken');//token
 const register=async(req,res)=>{
     try{
         // validate the request body
