@@ -1,5 +1,5 @@
 const User=require('../model/user');
-const validate=require('./uttils/validator');
+const validate=require('../uttils/validator');
 const bcrypt=require('bcrypt');
 const jwt=require('jsonwebtoken');
 const register=async(req,res)=>{
@@ -48,4 +48,9 @@ const login=async(req,res)=>{
     }
 }
 
-module.exports = { register, login };
+const logout=async(req,res)=>{
+    res.clearCookie('token');
+    res.status(200).send("User Logged Out Successfully");
+}
+
+module.exports = { register,login,logout};

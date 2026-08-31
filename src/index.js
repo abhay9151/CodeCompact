@@ -1,12 +1,13 @@
 const express=require('express');
 require('dotenv').config();
-require('./config/db')
-const cookieparser=require('cookies-parser');
+const main=require('./config/db')
+const cookieparser=require('cookie-parser');
+const authrouter=require('./routes/userauth');
 
 const app=express();
 app.use(express.json());
 app.use(cookieparser());
-
+app.use('/user',authrouter);
 app.get('/', (req, res) => {
     res.send("Hello World");
 });
